@@ -1,26 +1,49 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'react-toastify';
-import customFetch from '../utils/customFetch';
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const formRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
+    // EmailJS configuration
+    const serviceId = 'service_nkh3h2o';
+    const templateId = 'template_9j52fmf';
+    const publicKey = 'H-Pf9nDC3WyS-5kuc';
+    const toName = 'Theja Ashwin';
+    const toEmail = 'thejaashwin62@gmail.com';
+
+    const templateParams = {
+      from_name: formData.name,
+      to_name: toName,
+      from_email: formData.email,
+      to_email: toEmail,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
     try {
-      await customFetch.post('/contact', formData);
+      const response = await emailjs.send(
+        serviceId, 
+        templateId, 
+        templateParams, 
+        publicKey
+      );
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      toast.error('Failed to send message');
+      toast.error('Failed to send message. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -77,17 +100,20 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
               {/* Name Field */}
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-medium">Name</span>
+                <label className="block text-gray-700 text-sm font-semibold mb-2">
+                  Name
                 </label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="input input-bordered bg-gray-50 focus:bg-white transition-colors"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg
+                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                    transition-all duration-200
+                    bg-gray-50 focus:bg-white"
                   placeholder="Enter your name"
                   required
                 />
@@ -95,14 +121,17 @@ const Contact = () => {
 
               {/* Email Field */}
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-medium">Email</span>
+                <label className="block text-gray-700 text-sm font-semibold mb-2">
+                  Email
                 </label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="input input-bordered bg-gray-50 focus:bg-white transition-colors"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg
+                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                    transition-all duration-200
+                    bg-gray-50 focus:bg-white"
                   placeholder="Enter your email"
                   required
                 />
@@ -110,14 +139,17 @@ const Contact = () => {
 
               {/* Subject Field */}
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-medium">Subject</span>
+                <label className="block text-gray-700 text-sm font-semibold mb-2">
+                  Subject
                 </label>
                 <input
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="input input-bordered bg-gray-50 focus:bg-white transition-colors"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg
+                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                    transition-all duration-200
+                    bg-gray-50 focus:bg-white"
                   placeholder="Enter subject"
                   required
                 />
@@ -125,13 +157,17 @@ const Contact = () => {
 
               {/* Message Field */}
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-medium">Message</span>
+                <label className="block text-gray-700 text-sm font-semibold mb-2">
+                  Message
                 </label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="textarea textarea-bordered h-32 bg-gray-50 focus:bg-white transition-colors"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg
+                    focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                    transition-all duration-200
+                    bg-gray-50 focus:bg-white
+                    h-32 resize-none"
                   placeholder="Write your message here..."
                   required
                 />
@@ -141,14 +177,20 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="btn btn-primary w-full"
+                className="w-full px-6 py-3 rounded-xl font-medium transition-all duration-300
+                  bg-gradient-to-r from-blue-600 to-indigo-600 
+                  hover:from-blue-700 hover:to-indigo-700
+                  text-white shadow-lg hover:shadow-xl
+                  disabled:opacity-70 disabled:cursor-not-allowed
+                  flex items-center justify-center space-x-2
+                  mt-6"
               >
                 {isLoading ? (
                   <span className="loading loading-spinner"></span>
                 ) : (
                   <>
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Message
+                    <Send className="h-5 w-5" />
+                    <span>Send Message</span>
                   </>
                 )}
               </button>

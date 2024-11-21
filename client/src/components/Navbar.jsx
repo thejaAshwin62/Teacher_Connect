@@ -62,22 +62,25 @@ export default function Navbar() {
           { name: "Dashboard", path: "/dashboard" },
           { name: "Search Teacher", path: "/search-teacher" },
           { name: "Manage Teachers", path: "/admin-dashboard" },
+          { name: "Contact", path: "/contact" },
         ];
       } else if (user.role === "teacher") {
         return [
           ...baseLinks,
           { name: "Dashboard", path: "/teacher-dashboard" },
           { name: "Schedules", path: "/schedule-appointment" },
+          { name: "Contact", path: "/contact" },
         ];
       } else {
         return [
           ...baseLinks,
           { name: "Dashboard", path: "/dashboard" },
           { name: "Book Appointment", path: "/search-teacher" },
+          { name: "Contact", path: "/contact" },
         ];
       }
     }
-    return [...baseLinks, { name: "Contact", path: "/contact" }];
+      return [...baseLinks, { name: "Contact", path: "/contact" }];
   };
 
   const navLinks = getNavLinks();
