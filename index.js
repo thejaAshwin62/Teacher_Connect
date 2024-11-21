@@ -15,7 +15,7 @@ import cloudinary from "cloudinary";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
-import { User } from './Models/User.js';
+import { User } from './models/User.js';
 
 // Configure dotenv to read .env file
 dotenv.config();
@@ -27,7 +27,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.NODE_ENV === "production" 
+      ? process.env.CLIENT_URL  // Your Render URL
+      : "http://localhost:5173",
     credentials: true,
   })
 );
@@ -57,9 +59,15 @@ app.use("/api/v1/appointments", appointmentRoutes);
 app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/messages", messageRoutes);
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+if (process.env.NODE_ENV === 'production') {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  app.use(express.static(path.resolve(__dirname, "./client/dist")));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
+  });
+}
 
-app.use(express.static(path.resolve(__dirname, "./public")));
 // Error handling middleware (move this after routes)
 app.use((err, req, res, next) => {
   console.error("Error:", err);
@@ -73,16 +81,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
-});
-
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
-
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });
 });
@@ -92,4 +90,10 @@ app.use((err, req, res, next) => {
   res.status(StatusCodes.BAD_REQUESt).json({ msg: "something went wrong" });
 });
 app.use(errorHandlerMiddleware);
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
 

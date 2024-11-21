@@ -10,7 +10,7 @@ import {
 import { sendEmail } from "../utils/emailUtils.js";
 import multer from "multer";
 import cloudinary from "cloudinary";
-import { User } from "../Models/User.js";
+import { User } from "../models/User.js";
 // Configure multer for memory storage
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
