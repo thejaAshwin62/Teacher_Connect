@@ -8,9 +8,12 @@
     "server": "nodemon index",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "build-client": "cd client && npm run build",
-    "move-dist": "if exist public (rmdir /s /q public) && mkdir public && xcopy /s /e /y client\\dist\\* public\\",
-    "production": "npm run build-client && npm run move-dist"
+    "setup-production": "npm install && npm run build-client",
+    "build-client": "cd client && npm install && npm run build && cd .. && npm run move-dist",
+    "move-dist-windows": "if exist public rmdir /s /q public && mkdir public && xcopy /s /e /y client\\dist\\* public\\",
+    "move-dist-unix": "rm -rf public && mkdir public && cp -r client/dist/* public/",
+    "move-dist": "node -e \"if (process.platform === 'win32') { require('child_process').execSync('npm run move-dist-windows', {stdio: 'inherit'}) } else { require('child_process').execSync('npm run move-dist-unix', {stdio: 'inherit'}) }\"",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

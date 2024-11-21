@@ -15,7 +15,7 @@ import cloudinary from "cloudinary";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
-import { User } from './models/User.js';
+// import { User } from './models/User.js';
 
 // Configure dotenv to read .env file
 dotenv.config();
@@ -61,10 +61,10 @@ app.use("/api/v1/messages", messageRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  app.use(express.static(path.resolve(__dirname, "./client/dist")));
+  app.use(express.static(path.resolve(__dirname, "./public")));
   
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
+    res.sendFile(path.resolve(__dirname, "./public", "index.html"));
   });
 }
 
