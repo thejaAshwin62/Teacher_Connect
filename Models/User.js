@@ -33,3 +33,4 @@ const UserSchema = new mongoose.Schema({
 mongoose.connection.collections.users?.dropIndex('name_1');
 
 export const User = mongoose.model("User", UserSchema);
+

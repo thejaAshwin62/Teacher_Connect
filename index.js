@@ -15,6 +15,7 @@ import cloudinary from "cloudinary";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
+import { User } from './Models/User.js';
 
 // Configure dotenv to read .env file
 dotenv.config();

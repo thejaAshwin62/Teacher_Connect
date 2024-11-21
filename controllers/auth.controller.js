@@ -1,4 +1,3 @@
-import { User } from "../models/User.js";
 import { Teacher } from "../models/Teacher.js";
 import bcrypt from "bcrypt";
 import { createJWT } from "../utils/tokenUtils.js";
@@ -11,7 +10,7 @@ import {
 import { sendEmail } from "../utils/emailUtils.js";
 import multer from "multer";
 import cloudinary from "cloudinary";
-
+import { User } from "../Models/User.js";
 // Configure multer for memory storage
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
