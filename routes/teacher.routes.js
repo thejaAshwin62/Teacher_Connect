@@ -1,5 +1,6 @@
 import express from "express";
 import { authenticateUser } from "../middleware/authMiddleware.js";
+import multer from 'multer';
 import {
   scheduleAvailability,
   getAllAppointments,
@@ -16,6 +17,10 @@ import {
 
 const router = express.Router();
 
+// Add multer configuration
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 // Public routes (no authentication needed)
 router.get('/details/:teacherId', getTeacherDetailsForAppointment);
 router.get('/details/:teacherId', getTeacherDetails);
@@ -24,7 +29,7 @@ router.get('/details/:teacherId', getTeacherDetails);
 router.use(authenticateUser);
 
 // Profile routes
-router.patch('/update-profile', updateTeacherProfile);
+router.patch('/update-profile', authenticateUser, upload.single('profilePic'), updateTeacherProfile);
 router.get('/profile', getTeacherProfile);
 router.get('/profile/:id', getTeacherById);
 

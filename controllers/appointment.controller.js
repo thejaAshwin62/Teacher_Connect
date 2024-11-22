@@ -106,19 +106,24 @@ export const getStudentAppointments = async (req, res, next) => {
       })
       .sort({ date: 1, startTime: 1 });
 
-    const formattedAppointments = appointments.map(appointment => ({
-      _id: appointment._id,
-      date: appointment.date,
-      startTime: appointment.startTime,
-      endTime: appointment.endTime,
-      status: appointment.status,
-      message: appointment.message,
-      teacherId: appointment.teacherId._id,
-      teacherName: appointment.teacherId.name,
-      teacherEmail: appointment.teacherId.email,
-      teacherDepartment: appointment.teacherId.department,
-      teacherProfilePic: appointment.teacherId.profilePic || null
-    }));
+    const formattedAppointments = appointments.map(appointment => {
+      // Add null checks for teacher data
+      const teacher = appointment.teacherId || {};
+      
+      return {
+        _id: appointment._id,
+        date: appointment.date,
+        startTime: appointment.startTime,
+        endTime: appointment.endTime,
+        status: appointment.status,
+        message: appointment.message,
+        teacherId: teacher._id || null,
+        teacherName: teacher.name || 'Deleted Teacher',
+        teacherEmail: teacher.email || 'No Email',
+        teacherDepartment: teacher.department || 'Unknown',
+        teacherProfilePic: teacher.profilePic || null
+      };
+    });
 
     res.status(200).json({
       success: true,

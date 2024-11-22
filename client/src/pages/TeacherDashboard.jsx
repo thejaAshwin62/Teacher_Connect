@@ -83,7 +83,7 @@ export default function TeacherDashboard() {
         formData.append('profilePic', editedUser.profilePic);
       }
 
-      const { data } = await customFetch.patch('/users/update-profile', formData);
+      const { data } = await customFetch.patch('/teacher/update-profile', formData);
 
       if (data.success) {
         setUser(data.user);
@@ -147,35 +147,34 @@ export default function TeacherDashboard() {
                   <form onSubmit={handleEditSubmit} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-xl space-y-6">
                     <div className="space-y-4">
                       <div className="form-control">
-                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1">
+                        <label className="inline-block px-3 py-1 bg-white/20 rounded-full text-white/90 text-sm font-medium mb-2 ml-1">
                           Full Name
                         </label>
                         <div className="relative">
                           <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                           <input
                             type="text"
-                            value={editedUser.username}
-                            onChange={(e) => setEditedUser({ ...editedUser, username: e.target.value })}
-                            className="input input-bordered  pl-10 bg-white/10 text-white placeholder-white/50 w-full rounded-lg"
-                            placeholder="Enter your username"
+                            value={editedUser.name}
+                            onChange={(e) => setEditedUser({ ...editedUser, name: e.target.value })}
+                            className="input input-bordered pl-10 bg-white/10 text-white placeholder-white/50 w-full rounded-lg"
+                            placeholder="Enter your full name"
                           />
                         </div>
                       </div>
                       
                       <div className="form-control">
-                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1">
+                        <label className="inline-block px-3 py-1 bg-white/20 rounded-full text-white/90 text-sm font-medium mb-2 ml-1">
                           Email Address
                         </label>
                         <div className="relative">
                           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                        <input
+                          <input
                             type="email"
                             value={editedUser.email}
                             onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })}
-                            className="input input-bordered pl-10 bg-white/10 border-white/20 text-white placeholder-white/50 rounded-lg w-full"
+                            className="input input-bordered pl-10 bg-white/10 text-white placeholder-white/50 w-full rounded-lg"
                             placeholder="Enter your email"
                           />
-                          
                         </div>
                       </div>
                     </div>

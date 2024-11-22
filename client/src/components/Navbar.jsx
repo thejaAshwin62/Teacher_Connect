@@ -147,7 +147,8 @@ export default function Navbar() {
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50">
+                <button onClick={() => navigate(`/${user.role === "teacher" ? "teacher-dashboard" : "dashboard"}`)}>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100">
                   <div className="avatar placeholder">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
                       <span className="text-sm font-bold text-white">
@@ -166,6 +167,7 @@ export default function Navbar() {
                     )}
                   </span>
                 </div>
+                </button>
                 <button
                   onClick={handleLogout}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-all duration-200"
@@ -292,7 +294,7 @@ export default function Navbar() {
                     </div>
                   </div>
                   <div>
-                    <span className="font-medium text-gray-900">
+                    <span className="font-medium text-gray-900 ">
                       {user.role === "teacher" ? user.name : user.username}
                     </span>
                     {user.role === "admin" && (

@@ -248,13 +248,13 @@ export default function Dashboard() {
                           </div>
                           <div>
                             <h4 className="font-semibold text-gray-900">
-                              {appointment.teacherName}
+                              {appointment.teacherName || 'Deleted Teacher'}
                             </h4>
                             <p className="text-sm text-gray-500">
-                              {appointment.teacherEmail}
+                              {appointment.teacherEmail || 'No Email'}
                             </p>
                             <p className="text-xs text-gray-400">
-                              {appointment.teacherDepartment}
+                              {appointment.teacherDepartment || 'Unknown Department'}
                             </p>
                           </div>
                         </div>

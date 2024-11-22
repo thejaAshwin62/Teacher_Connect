@@ -701,7 +701,7 @@ const AdminDashboard = () => {
                           <div className="flex gap-2 border-t mt-3 pt-3">
                             <button
                               type="submit"
-                              className="btn btn-primary btn-sm flex-1"
+                              className="btn btn-primary btn-sm flex-1 bg-white hover:bg-gray-200 text-black border-none"
                             >
                               <div className="flex items-center">
                                 <Save className="h-4 w-4 mr-1" />
@@ -710,7 +710,7 @@ const AdminDashboard = () => {
                             </button>
                             <button
                               type="button"
-                              className="btn btn-ghost btn-sm flex-1"
+                              className="btn btn-ghost btn-sm flex-1 bg-white hover:bg-gray-200 text-black border-none"
                               onClick={() => setEditingTeacher(null)}
                             >
                               <div className="flex items-center">

@@ -214,6 +214,8 @@ export const updateTeacherProfile = async (req, res, next) => {
     const { name, email } = req.body;
     const teacherId = req.user.userId;
 
+    console.log('Update request:', { name, email, teacherId }); // Debug log
+
     // Find the teacher
     const teacher = await Teacher.findById(teacherId);
     if (!teacher) {
@@ -221,27 +223,22 @@ export const updateTeacherProfile = async (req, res, next) => {
     }
 
     // Update basic info
-    teacher.name = name || teacher.name;
-    teacher.email = email || teacher.email;
+    if (name) teacher.name = name;
+    if (email) teacher.email = email;
 
     // Handle profile picture upload
     if (req.file) {
-      // Upload to cloudinary
       const result = await new Promise((resolve, reject) => {
         const stream = cloudinary.v2.uploader.upload_stream(
-          {
-            folder: 'teacher_profile_pics',
-          },
+          { folder: 'teacher_profile_pics' },
           (error, result) => {
             if (error) reject(error);
             else resolve(result);
           }
         );
-
         stream.write(req.file.buffer);
         stream.end();
       });
-
       teacher.profilePic = result.secure_url;
     }
 
@@ -250,7 +247,7 @@ export const updateTeacherProfile = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: 'Profile updated successfully',
-      teacher: {
+      user: {
         id: teacher._id,
         name: teacher.name,
         email: teacher.email,
@@ -260,6 +257,7 @@ export const updateTeacherProfile = async (req, res, next) => {
       }
     });
   } catch (error) {
+    console.error('Profile update error:', error); // Debug log
     next(error);
   }
 };
