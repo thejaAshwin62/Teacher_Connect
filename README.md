@@ -11,6 +11,11 @@
 - Enable efficient time management for both teachers and students
 - Facilitate clear communication channels through integrated chat
 
+<div align="center">
+    <h2>Landing Page </h2>
+<a href="https://teacher-connect.onrender.com/" target="_blank"><a href="https://teacher-connect.onrender.com/"><img src="https://i.ibb.co/YQP0TWn/Screenshot-2024-11-22-223447.png" alt="EA" border="0"></a>
+</div>
+
 ### 💡 Key Features by Role
 
 #### For Students
