@@ -13,7 +13,23 @@ export default function SearchTeacher() {
   const [teachers, setTeachers] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const { data } = await customFetch.get('/auth/check-auth');
+        setUser(data.user);
+      } catch (error) {
+        console.error('Error fetching user:', error);
+        setUser(null);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  console.log(user?.role);
   // Debounce search query
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,11 +90,10 @@ export default function SearchTeacher() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Find Your Teacher
+            {user?.role==='admin'?'View Teachers':'Find Your Teacher'}
             </h1>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Search for teachers by name or filter by department to book your
-              appointment
+            {user?.role==='admin'?"Search for teachers by name or filter by department":"  Search for teachers by name or filter by department to book yourappointment"}
             </p>
           </div>
 
@@ -148,7 +163,7 @@ export default function SearchTeacher() {
                     {departmentTeachers.map((teacher) => (
                       <div
                         key={teacher.id}
-                        onClick={() => handleTeacherClick(teacher)}
+                        onClick={() => {user?.role==='admin'?'' : handleTeacherClick(teacher)}}
                         className="flex flex-col border rounded-lg p-4 hover:shadow-lg transition-shadow duration-200 cursor-pointer bg-white"
                       >
                         {/* Teacher Header */}
@@ -204,18 +219,20 @@ export default function SearchTeacher() {
                         </div>
 
                         {/* Book Button */}
+                       {user?.role==='admin'? "" :
                         <div className="mt-4 pt-4 border-t">
-                          <button className="w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 
-                            bg-gradient-to-r from-green-500 to-green-600 
-                            hover:from-green-600 hover:to-green-700
-                            text-white shadow-md hover:shadow-lg 
-                            active:transform active:scale-95
-                            focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50
-                            disabled:opacity-50 disabled:cursor-not-allowed
-                            text-sm sm:text-base">
-                            Book Appointment
-                          </button>
-                        </div>
+                        <button className="w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 
+                          bg-gradient-to-r from-green-500 to-green-600 
+                          hover:from-green-600 hover:to-green-700
+                          text-white shadow-md hover:shadow-lg 
+                          active:transform active:scale-95
+                          focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50
+                          disabled:opacity-50 disabled:cursor-not-allowed
+                          text-sm sm:text-base">
+                          Book Appointment
+                        </button>
+                      </div>
+                       }
                       </div>
                     ))}
                   </div>

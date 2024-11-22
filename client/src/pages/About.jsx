@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { CalendarDays, UserCheck, Clock, CheckCircle, GraduationCap, Users, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import customFetch from '../utils/customFetch';
+import { toast } from 'react-toastify';
+import FeatureCard from '../components/FeatureCard';
+import StatCard from '../components/StatCard';
 
 export default function About() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const { data } = await customFetch.get('/auth/check-auth');
+        setUser(data.user);
+      } catch (error) {
+        console.error('Error fetching user:', error);
+        setUser(null);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  console.log(user?.role);
+  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 pt-20">
       {/* Hero Section */}
@@ -82,51 +105,46 @@ export default function About() {
           <p className="mb-8 text-blue-100 max-w-2xl mx-auto">
             Join our platform to simplify your appointment scheduling process and enhance student-teacher communication.
           </p>
-          <Link to="/login">
-            <button className=" px-6 py-3 rounded-xl font-medium transition-all duration-300
-                 bg-white
-                  hover:bg-gray-100
-                  active:scale-[0.98]
-                  text-gray-700 hover:text-gray-900
-                  shadow-md hover:shadow-lg
-                  focus:ring-4 focus:ring-gray-500/20
-                  disabled:opacity-70 disabled:cursor-not-allowed
-                  text-base sm:text-lg">
-              Get Started
-            </button>
-          </Link>
+          {!user ? (
+            <Link to="/login">
+              <button className="px-6 py-3 rounded-xl font-medium transition-all duration-300
+                bg-white hover:bg-gray-100 active:scale-[0.98]
+                text-gray-700 hover:text-gray-900
+                shadow-md hover:shadow-lg
+                focus:ring-4 focus:ring-gray-500/20
+                disabled:opacity-70 disabled:cursor-not-allowed
+                text-base sm:text-lg">
+                Get Started
+              </button>
+            </Link>
+          ) : (
+            <Link to={
+              user.role === 'admin' 
+                ? '/admin-dashboard' 
+                : user.role === 'teacher'
+                  ? '/teacher-dashboard'
+                  : '/search-teacher'
+            }>
+              <button className="px-6 py-3 rounded-xl font-medium transition-all duration-300
+                bg-white hover:bg-gray-100 active:scale-[0.98]
+                text-gray-700 hover:text-gray-900
+                shadow-md hover:shadow-lg
+                focus:ring-4 focus:ring-gray-500/20
+                disabled:opacity-70 disabled:cursor-not-allowed
+                text-base sm:text-lg">
+                {user.role === 'admin' 
+                  ? 'Manage Teachers' 
+                  : user.role === 'teacher'
+                    ? 'Go to Dashboard'
+                    : 'View Teachers'}
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-function FeatureCard({ icon, title, description, color }) {
-  return (
-    <div className="card bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
-      <div className="card-body items-center text-center p-6">
-        <div className={`rounded-full p-4 bg-${color}-50 mb-4`}>
-          {icon}
-        </div>
-        <h3 className="card-title text-xl mb-2 text-gray-900">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </div>
-    </div>
-  );
-}
 
-function StatCard({ icon, value, label }) {
-  return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6">
-      <div className="flex items-center space-x-4">
-        <div className="rounded-full p-3 bg-gray-50">
-          {icon}
-        </div>
-        <div>
-          <div className="text-2xl font-bold text-gray-900">{value}</div>
-          <div className="text-sm text-gray-600">{label}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
+

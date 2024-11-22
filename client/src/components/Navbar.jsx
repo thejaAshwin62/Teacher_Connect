@@ -60,7 +60,7 @@ export default function Navbar() {
         return [
           ...baseLinks,
           { name: "Dashboard", path: "/dashboard" },
-          { name: "Search Teacher", path: "/search-teacher" },
+          { name: "View Teachers", path: "/search-teacher" },
           { name: "Manage Teachers", path: "/admin-dashboard" },
           { name: "Contact", path: "/contact" },
         ];
