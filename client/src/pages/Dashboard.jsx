@@ -213,7 +213,10 @@ export default function Dashboard() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+      {user?.role ==="user" &&(
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Appointments Section */}
           <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -313,6 +316,10 @@ export default function Dashboard() {
             )}
           </div>
         </div>
+        </div>
+      )}
+
+
       </div>
     </div>
   );

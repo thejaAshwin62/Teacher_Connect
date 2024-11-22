@@ -913,30 +913,24 @@ const AdminDashboard = () => {
                                 </span>
                               </td>
                               <td className="text-center py-4 px-6">
-                                <div className="flex items-center justify-center space-x-2">
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
                                   <button
-                                    onClick={() =>
-                                      handleApproveRegistration(
-                                        teacher._id,
-                                        "teacher"
-                                      )
-                                    }
-                                    className="btn btn-sm bg-green-100 hover:bg-green-200 text-green-700 border-none"
+                                    onClick={() => handleApproveRegistration(teacher._id, "teacher")}
+                                    className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                                   >
-                                    <CheckCircle className="h-3 w-3 mr-1" />
-                                    Approve
+                                    <div className="flex items-center justify-center gap-2 min-w-[90px]">
+                                      <CheckCircle size={16} />
+                                      <span className="text-sm font-medium">Approve</span>
+                                    </div>
                                   </button>
                                   <button
-                                    onClick={() =>
-                                      handleRejectRegistration(
-                                        teacher._id,
-                                        "teacher"
-                                      )
-                                    }
-                                    className="btn btn-sm bg-red-100 hover:bg-red-200 text-red-700 border-none"
+                                    onClick={() => handleRejectRegistration(teacher._id, "teacher")}
+                                    className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                                   >
-                                    <X className="h-3 w-3 mr-1" />
-                                    Reject
+                                    <div className="flex items-center justify-center gap-2 min-w-[90px]">
+                                      <X size={16} />
+                                      <span className="text-sm font-medium">Reject</span>
+                                    </div>
                                   </button>
                                 </div>
                               </td>
@@ -1024,30 +1018,24 @@ const AdminDashboard = () => {
                                 </span>
                               </td>
                               <td className="text-center py-4 px-6">
-                                <div className="flex items-center justify-center space-x-2">
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
                                   <button
-                                    onClick={() =>
-                                      handleApproveRegistration(
-                                        student._id,
-                                        "student"
-                                      )
-                                    }
-                                    className="btn btn-sm bg-green-100 hover:bg-green-200 text-green-700 border-2 border-green-500"
+                                    onClick={() => handleApproveRegistration(student._id, "student")}
+                                    className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                                   >
-                                    <CheckCircle className="h-3 w-3 mr-1" />
-                                    Approve
+                                    <div className="flex items-center justify-center gap-2 min-w-[90px]">
+                                      <CheckCircle size={16} />
+                                      <span className="text-sm font-medium">Approve</span>
+                                    </div>
                                   </button>
                                   <button
-                                    onClick={() =>
-                                      handleRejectRegistration(
-                                        student._id,
-                                        "student"
-                                      )
-                                    }
-                                    className="btn btn-sm bg-red-100 hover:bg-red-200 text-red-700 border-2 border-red-500"
+                                    onClick={() => handleRejectRegistration(student._id, "student")}
+                                    className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                                   >
-                                    <X className="h-3 w-3 mr-1" />
-                                    Reject
+                                    <div className="flex items-center justify-center gap-2 min-w-[90px]">
+                                      <X size={16} />
+                                      <span className="text-sm font-medium">Reject</span>
+                                    </div>
                                   </button>
                                 </div>
                               </td>
