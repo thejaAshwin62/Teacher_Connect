@@ -125,7 +125,7 @@ const Stats = () => {
       <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Stats Cards */}
         <div className="stats shadow w-full">
-          <div className="stat bg-blue-50">
+          <div className="stat bg-blue-50 m-4">
             <div className="stat-title text-blue-600">Total Teachers</div>
             <div className="stat-value text-blue-600">{statsData.statusStats.teachers.total}</div>
             <div className="stat-desc text-blue-500">
@@ -133,7 +133,7 @@ const Stats = () => {
             </div>
           </div>
           
-          <div className="stat bg-green-50">
+          <div className="stat bg-green-50 m-4">
             <div className="stat-title text-green-600">Total Students</div>
             <div className="stat-value text-green-600">{statsData.statusStats.students.total}</div>
             <div className="stat-desc text-green-500">

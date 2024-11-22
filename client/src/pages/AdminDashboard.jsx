@@ -470,28 +470,34 @@ const AdminDashboard = () => {
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                   <div className="stat bg-blue-50 rounded-xl">
+                    <div className="m-4">
                     <div className="stat-title text-blue-600">
                       Total Teachers
                     </div>
                     <div className="stat-value text-blue-600">
                       {teachers.length}
                     </div>
+                    </div>
                   </div>
-                  <div className="stat bg-green-50 rounded-xl">
-                    <div className="stat-title text-green-600">
+                  <div className="stat bg-green-50 rounded-xl ">
+                   <div className="m-4">
+                   <div className="stat-title text-green-600">
                       Active Teachers
                     </div>
                     <div className="stat-value text-green-600">
                       {teachers.filter((t) => t.isApproved).length}
                     </div>
+                   </div>
                   </div>
                   <div className="stat bg-yellow-50 rounded-xl">
-                    <div className="stat-title text-yellow-600">
+                   <div className="m-4">
+                   <div className="stat-title text-yellow-600">
                       Pending Approval
                     </div>
                     <div className="stat-value text-yellow-600">
                       {pendingTeachers.length}
                     </div>
+                   </div>
                   </div>
                 </div>
 
@@ -778,8 +784,8 @@ const AdminDashboard = () => {
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6">
                   <div className="stats shadow">
-                    <div className="stat bg-yellow-50">
-                      <div className="stat-figure text-yellow-500">
+                    <div className="stat bg-yellow-50 ">
+                      <div className="stat-figure text-yellow-500 ml-4">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -791,16 +797,18 @@ const AdminDashboard = () => {
                             strokeLinejoin="round"
                             strokeWidth="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
+                          >
+                            
+                          </path>
                         </svg>
                       </div>
-                      <div className="stat-title text-yellow-700">
+                      <div className="stat-title text-yellow-700 ml-4">
                         Pending Teachers
                       </div>
-                      <div className="stat-value text-yellow-700">
+                      <div className="stat-value text-yellow-700 ml-4">
                         {pendingTeachers.length}
                       </div>
-                      <div className="stat-desc text-yellow-600">
+                      <div className="stat-desc text-yellow-600 ml-4">
                         Awaiting Approval
                       </div>
                     </div>
@@ -808,7 +816,7 @@ const AdminDashboard = () => {
 
                   <div className="stats shadow">
                     <div className="stat bg-blue-50">
-                      <div className="stat-figure text-blue-500">
+                      <div className="stat-figure text-blue-500 ml-4">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -823,13 +831,13 @@ const AdminDashboard = () => {
                           ></path>
                         </svg>
                       </div>
-                      <div className="stat-title text-blue-700">
+                      <div className="stat-title text-blue-700 ml-4">
                         Pending Students
                       </div>
-                      <div className="stat-value text-blue-700">
+                      <div className="stat-value text-blue-700 ml-4">
                         {pendingStudents.length}
                       </div>
-                      <div className="stat-desc text-blue-600">
+                      <div className="stat-desc text-blue-600 ml-4">
                         Awaiting Approval
                       </div>
                     </div>
@@ -1033,7 +1041,7 @@ const AdminDashboard = () => {
                                         "student"
                                       )
                                     }
-                                    className="btn btn-sm bg-green-100 hover:bg-green-200 text-green-700 border-none"
+                                    className="btn btn-sm bg-green-100 hover:bg-green-200 text-green-700 border-2 border-green-500"
                                   >
                                     <CheckCircle className="h-3 w-3 mr-1" />
                                     Approve
@@ -1045,7 +1053,7 @@ const AdminDashboard = () => {
                                         "student"
                                       )
                                     }
-                                    className="btn btn-sm bg-red-100 hover:bg-red-200 text-red-700 border-none"
+                                    className="btn btn-sm bg-red-100 hover:bg-red-200 text-red-700 border-2 border-red-500"
                                   >
                                     <X className="h-3 w-3 mr-1" />
                                     Reject

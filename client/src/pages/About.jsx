@@ -83,7 +83,15 @@ export default function About() {
             Join our platform to simplify your appointment scheduling process and enhance student-teacher communication.
           </p>
           <Link to="/login">
-            <button className="btn btn-lg bg-white text-blue-600 hover:bg-blue-50 border-none">
+            <button className=" px-6 py-3 rounded-xl font-medium transition-all duration-300
+                 bg-white
+                  hover:bg-gray-100
+                  active:scale-[0.98]
+                  text-gray-700 hover:text-gray-900
+                  shadow-md hover:shadow-lg
+                  focus:ring-4 focus:ring-gray-500/20
+                  disabled:opacity-70 disabled:cursor-not-allowed
+                  text-base sm:text-lg">
               Get Started
             </button>
           </Link>

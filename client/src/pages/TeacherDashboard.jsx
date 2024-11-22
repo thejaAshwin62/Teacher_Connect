@@ -13,14 +13,24 @@ export default function TeacherDashboard() {
   const [user, setUser] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedUser, setEditedUser] = useState({ name: '', email: '' });
+  const [editedUser, setEditedUser] = useState({
+    name: '',
+    email: '',
+    profilePic: null
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch user data
         const userResponse = await customFetch.get('/auth/check-auth');
-        setUser(userResponse.data.user);
+        const userData = userResponse.data.user;
+        setUser(userData);
+        setEditedUser({
+          name: userData.name,
+          email: userData.email,
+          profilePic: userData.profilePic
+        });
 
         // Fetch appointments
         const appointmentsResponse = await customFetch.get('/appointments/teacher/appointments');
@@ -66,15 +76,23 @@ export default function TeacherDashboard() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await customFetch.put(`/auth/update-user/${user.id}`, {
-        name: editedUser.name,
-        email: editedUser.email
-      });
-      setUser(data.user);
-      setIsEditing(false);
-      toast.success('Profile updated successfully');
+      const formData = new FormData();
+      formData.append('name', editedUser.name);
+      formData.append('email', editedUser.email);
+      if (editedUser.profilePic instanceof File) {
+        formData.append('profilePic', editedUser.profilePic);
+      }
+
+      const { data } = await customFetch.patch('/users/update-profile', formData);
+
+      if (data.success) {
+        setUser(data.user);
+        setIsEditing(false);
+        toast.success('Profile updated successfully');
+      }
     } catch (error) {
-      toast.error('Failed to update profile');
+      console.error('Update error:', error);
+      toast.error(error?.response?.data?.message || 'Failed to update profile');
     }
   };
 
@@ -126,28 +144,68 @@ export default function TeacherDashboard() {
               </div>
               <div className="text-center sm:text-left flex-1">
                 {isEditing ? (
-                  <form onSubmit={handleEditSubmit} className="space-y-4">
-                    <input
-                      type="text"
-                      value={editedUser.name}
-                      onChange={(e) =>
-                        setEditedUser({ ...editedUser, name: e.target.value })
-                      }
-                      className="input input-bordered w-full max-w-xs"
-                      placeholder="Name"
-                    />
-                    <div className="flex gap-3">
-                      <button type="submit" className="btn btn-success btn-sm gap-2">
+                  <form onSubmit={handleEditSubmit} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-xl space-y-6">
+                    <div className="space-y-4">
+                      <div className="form-control">
+                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1">
+                          Full Name
+                        </label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                          <input
+                            type="text"
+                            value={editedUser.username}
+                            onChange={(e) => setEditedUser({ ...editedUser, username: e.target.value })}
+                            className="input input-bordered  pl-10 bg-white/10 text-white placeholder-white/50 w-full rounded-lg"
+                            placeholder="Enter your username"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="form-control">
+                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1">
+                          Email Address
+                        </label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                            type="email"
+                            value={editedUser.email}
+                            onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })}
+                            className="input input-bordered pl-10 bg-white/10 border-white/20 text-white placeholder-white/50 rounded-lg w-full"
+                            placeholder="Enter your email"
+                          />
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
+                      <button 
+                        type="submit" 
+                        className="btn btn-success btn-sm gap-2 flex-1 normal-case hover:brightness-110 transition-all"
+                      >
+                        <div className="flex items-center justify-center gap-2 text-white">
                         <Save size={18} />
-                        Save
+                        Save Changes
+                        </div>
                       </button>
                       <button
                         type="button"
-                        onClick={() => setIsEditing(false)}
-                        className="btn btn-error btn-sm gap-2"
+                        onClick={() => {
+                          setIsEditing(false);
+                          setEditedUser({
+                            name: user.name,
+                            email: user.email,
+                            profilePic: user.profilePic
+                          });
+                        }}
+                        className="btn btn-ghost btn-sm gap-2 flex-1 normal-case border-2 border-white/20 text-white hover:bg-white/20"
                       >
-                        <X size={18} />
-                        Cancel
+                       <div className="flex items-center justify-center gap-2 text-white">
+                       <X size={18} />
+                       Cancel
+                       </div>
                       </button>
                     </div>
                   </form>
@@ -164,8 +222,10 @@ export default function TeacherDashboard() {
                       onClick={() => setIsEditing(true)}
                       className="btn btn-ghost btn-sm border-2 border-white/20 text-white gap-2 hover:bg-white/10"
                     >
+                      <div className="flex items-center justify-center gap-2 text-white">
                       <Edit size={18} />
                       Edit Profile
+                      </div>
                     </button>
                   </div>
                 )}

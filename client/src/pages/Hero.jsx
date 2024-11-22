@@ -54,6 +54,7 @@ export default function Hero() {
                   hover:from-blue-700 hover:to-indigo-700
                   active:scale-[0.98]
                   text-white shadow-lg hover:shadow-xl
+                  h-full
                   focus:ring-4 focus:ring-blue-500/20
                   disabled:opacity-70 disabled:cursor-not-allowed
                   text-base sm:text-lg">
@@ -68,6 +69,7 @@ export default function Hero() {
                 <button className="w-full px-6 py-3 rounded-xl font-medium transition-all duration-300
                   bg-white/90 hover:bg-white
                   border-2 border-gray-300 hover:border-gray-400
+                  
                   text-gray-700 hover:text-gray-900
                   shadow-md hover:shadow-lg
                   focus:ring-4 focus:ring-gray-500/20

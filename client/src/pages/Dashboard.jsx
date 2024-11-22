@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Mail, CheckCircle, Clock3, Camera, Edit, Save, X } from 'lucide-react';
+import { Calendar, Clock, Mail, CheckCircle, Clock3, Camera, Edit, Save, X, User } from 'lucide-react';
 import customFetch from '../utils/customFetch';
 import { toast } from 'react-toastify';
 import Chat from '../components/Chat';
@@ -55,11 +55,7 @@ export default function Dashboard() {
         formData.append('profilePic', editedUser.profilePic);
       }
 
-      const { data } = await customFetch.patch('/users/update-profile', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const { data } = await customFetch.patch('/users/update-profile', formData);
 
       if (data.success) {
         setUser(data.user);
@@ -127,28 +123,67 @@ export default function Dashboard() {
               </div>
               <div className="text-center sm:text-left flex-1">
                 {isEditing ? (
-                  <form onSubmit={handleEditSubmit} className="space-y-4">
-                    <input
-                      type="text"
-                      value={editedUser.username}
-                      onChange={(e) =>
-                        setEditedUser({ ...editedUser, username: e.target.value })
-                      }
-                      className="input input-bordered w-full max-w-xs"
-                      placeholder="Username"
-                    />
-                    <div className="flex gap-3">
-                      <button type="submit" className="btn btn-success btn-sm gap-2">
-                        <Save size={18} />
-                        Save
+                  <form onSubmit={handleEditSubmit} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-xl space-y-6">
+                    <div className="space-y-4">
+                      <div className="form-control rounded-md">
+                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1 ">
+                          Username
+                        </label>
+                        <div className="relative">
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                          <input
+                            type="text"
+                            value={editedUser.username}
+                            onChange={(e) => setEditedUser({ ...editedUser, username: e.target.value })}
+                            className="input input-bordered  pl-10 bg-white/10 text-white placeholder-white/50 w-full rounded-lg"
+                            placeholder="Enter your username"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="form-control">
+                        <label className="text-white/80 text-sm font-medium mb-1.5 ml-1">
+                          Email Address
+                        </label>
+                        <div className="relative">
+                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                          <input
+                            type="email"
+                            value={editedUser.email}
+                            onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })}
+                            className="input input-bordered pl-10 bg-white/10 border-white/20 text-white placeholder-white/50 rounded-lg w-full"
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
+                      <button 
+                        type="submit" 
+                        className="btn btn-success btn-sm gap-2 flex-1 normal-case hover:bg-white/20 transition-all text-white rounded-xl"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          Save Changes
+                          <Save size={18} />
+                        </div>
                       </button>
                       <button
                         type="button"
-                        onClick={() => setIsEditing(false)}
-                        className="btn btn-error btn-sm gap-2"
+                        onClick={() => {
+                          setIsEditing(false);
+                          setEditedUser({
+                            username: user.username,
+                            email: user.email,
+                            profilePic: user.profilePic
+                          });
+                        }}
+                        className="btn btn-ghost btn-sm gap-2 flex-1 normal-case border-2 border-white/20 text-white hover:bg-white/20 rounded-xl"
                       >
-                        <X size={18} />
-                        Cancel
+                        <div className="flex items-center justify-center gap-2">
+                          <X size={18} />
+                          Cancel
+                        </div>
                       </button>
                     </div>
                   </form>
@@ -165,8 +200,10 @@ export default function Dashboard() {
                       onClick={() => setIsEditing(true)}
                       className="btn btn-ghost btn-sm border-2 border-white/20 text-white gap-2 hover:bg-white/10"
                     >
-                      <Edit size={18} />
-                      Edit Profile
+                      <div className="flex items-center justify-center gap-2">
+                        <Edit size={18} />
+                        Edit Profile
+                      </div>
                     </button>
                   </div>
                 )}
