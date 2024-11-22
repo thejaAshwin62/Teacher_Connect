@@ -105,6 +105,9 @@ export default function BookAppointment() {
     }
   };
 
+  // Get teacher info from location state
+  const teacher = location.state || {};
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center pt-16">
@@ -123,22 +126,30 @@ export default function BookAppointment() {
         <div className="bg-primary text-primary-content p-6 sm:p-8 lg:p-10 rounded-t-2xl shadow-lg">
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <div className="relative">
-              <img
-                src={location.state?.teacherProfilePic || "/default-avatar.png"}
-                alt={location.state?.teacherName}
-                className="h-24 w-24 sm:h-32 sm:w-32 rounded-full object-cover border-4 border-primary-content/20 shadow-xl"
-              />
+              {teacher.profilePic ? (
+                <img
+                  src={teacher.profilePic}
+                  alt={teacher.teacherName}
+                  className="h-24 w-24 sm:h-32 sm:w-32 rounded-full object-cover border-4 border-white/30 shadow-lg"
+                />
+              ) : (
+                <div className="h-24 w-24 sm:h-32 sm:w-32 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center border-4 border-white/30 shadow-lg">
+                  <span className="text-3xl sm:text-4xl font-bold text-white uppercase">
+                    {teacher.teacherName?.[0] || '?'}
+                  </span>
+                </div>
+              )}
               <span className="absolute bottom-2 right-2 h-5 w-5 bg-success rounded-full border-2 border-primary"></span>
             </div>
             <div className="text-center md:text-left space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                {location.state?.teacherName}
+                {teacher.teacherName || 'Teacher Name'}
               </h2>
               <p className="text-lg sm:text-xl text-primary-content/80">
-                {location.state?.teacherDepartment}
+                {teacher.teacherDepartment || 'Department'}
               </p>
               <p className="text-primary-content/60">
-                {location.state?.teacherEmail}
+                {teacher.teacherEmail || 'Email'}
               </p>
             </div>
           </div>
