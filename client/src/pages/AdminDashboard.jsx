@@ -434,21 +434,12 @@ const AdminDashboard = () => {
                   <div className="pt-6">
                     <button
                       type="submit"
-                      className="btn btn-primary w-full sm:w-auto sm:min-w-[200px] h-12 text-base sm:text-lg normal-case"
+                      className="btn w-full sm:w-auto normal-case bg-green-500  hover:bg-green-700 text-white border-none rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                     >
-                      {isLoading ? (
-                        <>
-                          <span className="loading loading-spinner"></span>
-                          Creating Account...
-                        </>
-                      ) : (
-                        <>
-                          <div className="flex items-center btn btn-sm bg-green-100 hover:bg-green-200 text-green-700 border-none justify-center   md:ml-80">
-                            <UserPlus className="h-5 w-5 mr-2" />
-                            Add New Teacher
-                          </div>
-                        </>
-                      )}
+                      <div className="flex items-center justify-center gap-2">
+                        <UserPlus size={18} />
+                        <span className="text-sm font-medium">Add New Teacher</span>
+                      </div>
                     </button>
                   </div>
                 </form>

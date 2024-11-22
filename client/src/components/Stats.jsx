@@ -122,21 +122,21 @@ const Stats = () => {
         <p className="text-blue-100 mt-2">Monitor user growth and engagement</p>
       </div>
 
-      <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-xl">
         {/* Stats Cards */}
-        <div className="stats shadow w-full">
-          <div className="stat bg-blue-50 m-4">
-            <div className="stat-title text-blue-600">Total Teachers</div>
-            <div className="stat-value text-blue-600">{statsData.statusStats.teachers.total}</div>
-            <div className="stat-desc text-blue-500">
+        <div className="stats shadow w-full " >
+          <div className="stat bg-blue-50 m-4 rounded-xl">
+            <div className="stat-title text-blue-600 ml-4">Total Teachers</div>
+            <div className="stat-value text-blue-600 ml-4">{statsData.statusStats.teachers.total}</div>
+            <div className="stat-desc text-blue-500 ml-4">
               {statsData.statusStats.teachers.active} Active
             </div>
           </div>
           
-          <div className="stat bg-green-50 m-4">
-            <div className="stat-title text-green-600">Total Students</div>
-            <div className="stat-value text-green-600">{statsData.statusStats.students.total}</div>
-            <div className="stat-desc text-green-500">
+          <div className="stat bg-green-50 m-4 rounded-xl">
+            <div className="stat-title text-green-600 ml-4 ">Total Students</div>
+            <div className="stat-value text-green-600 ml-4">{statsData.statusStats.students.total}</div>
+            <div className="stat-desc text-green-500 ml-4">
               {statsData.statusStats.students.active} Active
             </div>
           </div>
@@ -159,8 +159,8 @@ const Stats = () => {
         </div>
 
         {/* Additional Stats */}
-        <div className="stats shadow w-full">
-          <div className="stat">
+        <div className="stats shadow w-full p-5">
+          <div className="stat m-4">
             <div className="stat-figure text-blue-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -173,7 +173,7 @@ const Stats = () => {
             <div className="stat-desc">Teachers</div>
           </div>
           
-          <div className="stat">
+          <div className="stat m-4">
             <div className="stat-figure text-green-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>

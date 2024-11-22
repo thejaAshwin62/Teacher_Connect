@@ -158,14 +158,14 @@ export default function Dashboard() {
                       </div>
                     </div>
 
-                    <div className="flex gap-3 pt-2">
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button 
                         type="submit" 
-                        className="btn btn-success btn-sm gap-2 flex-1 normal-case hover:bg-white/20 transition-all text-white rounded-xl"
+                        className="btn w-full sm:flex-1 normal-case bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-none rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                       >
                         <div className="flex items-center justify-center gap-2">
-                          Save Changes
                           <Save size={18} />
+                          <span className="text-sm font-medium">Save Changes</span>
                         </div>
                       </button>
                       <button
@@ -178,11 +178,11 @@ export default function Dashboard() {
                             profilePic: user.profilePic
                           });
                         }}
-                        className="btn btn-ghost btn-sm gap-2 flex-1 normal-case border-2 border-white/20 text-white hover:bg-white/20 rounded-xl"
+                        className="btn w-full sm:flex-1 normal-case bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                       >
                         <div className="flex items-center justify-center gap-2">
                           <X size={18} />
-                          Cancel
+                          <span className="text-sm font-medium">Cancel</span>
                         </div>
                       </button>
                     </div>

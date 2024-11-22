@@ -270,20 +270,18 @@ export default function BookAppointment() {
             <button
               type="submit"
               disabled={isLoading}
-              className="btn btn-primary w-full sm:w-auto sm:min-w-[200px] h-12 text-lg bg-blue-600 hover:bg-blue-700 text-white border-none"
+              className="btn w-full sm:w-auto min-w-[200px] normal-case bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-none rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
-                <>
+                <div className="flex items-center justify-center gap-2">
                   <span className="loading loading-spinner"></span>
-                  Processing...
-                </>
+                  <span className="text-sm font-medium">Processing...</span>
+                </div>
               ) : (
-                <>
-                  <div className="flex items-center gap-2 justify-center">
-                    <Send size={20} />
-                    Book Appointment
-                  </div>
-                </>
+                <div className="flex items-center justify-center gap-2">
+                  <Send size={18} />
+                  <span className="text-sm font-medium">Book Appointment</span>
+                </div>
               )}
             </button>
           </div>

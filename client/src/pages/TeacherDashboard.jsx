@@ -180,14 +180,14 @@ export default function TeacherDashboard() {
                       </div>
                     </div>
 
-                    <div className="flex gap-3 pt-2">
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button 
                         type="submit" 
-                        className="btn btn-success btn-sm gap-2 flex-1 normal-case hover:brightness-110 transition-all"
+                        className="btn w-full sm:flex-1 normal-case bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-none rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                       >
-                        <div className="flex items-center justify-center gap-2 text-white">
-                        <Save size={18} />
-                        Save Changes
+                        <div className="flex items-center justify-center gap-2">
+                          <Save size={18} />
+                          <span className="text-sm font-medium">Save Changes</span>
                         </div>
                       </button>
                       <button
@@ -200,12 +200,12 @@ export default function TeacherDashboard() {
                             profilePic: user.profilePic
                           });
                         }}
-                        className="btn btn-ghost btn-sm gap-2 flex-1 normal-case border-2 border-white/20 text-white hover:bg-white/20"
+                        className="btn w-full sm:flex-1 normal-case bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 rounded-xl px-6 py-2.5 shadow-lg hover:shadow-xl transition-all duration-200"
                       >
-                       <div className="flex items-center justify-center gap-2 text-white">
-                       <X size={18} />
-                       Cancel
-                       </div>
+                        <div className="flex items-center justify-center gap-2">
+                          <X size={18} />
+                          <span className="text-sm font-medium">Cancel</span>
+                        </div>
                       </button>
                     </div>
                   </form>
@@ -298,26 +298,30 @@ export default function TeacherDashboard() {
                     )}
 
                     {appointment.status === "pending" && (
-                      <div className="flex justify-end gap-2 mt-4 pt-3 border-t">
+                      <div className="flex flex-col sm:flex-row gap-2 mt-4 pt-3 border-t">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleStatusUpdate(appointment._id, "approved");
                           }}
-                          className="btn btn-xs bg-green-100 hover:bg-green-200 text-green-700 border-none"
+                          className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                         >
-                          <CheckCircle className="h-3 w-3 mr-1" />
-                          Approve
+                          <div className="flex items-center justify-center gap-2">
+                            <CheckCircle size={16} />
+                            <span className="text-sm font-medium">Approve</span>
+                          </div>
                         </button>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleStatusUpdate(appointment._id, "rejected");
                           }}
-                          className="btn btn-xs bg-red-100 hover:bg-red-200 text-red-700 border-none"
+                          className="btn w-full sm:w-auto normal-case bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-none rounded-xl px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200"
                         >
-                          <X className="h-3 w-3 mr-1" />
-                          Reject
+                          <div className="flex items-center justify-center gap-2">
+                            <X size={16} />
+                            <span className="text-sm font-medium">Reject</span>
+                          </div>
                         </button>
                       </div>
                     )}
