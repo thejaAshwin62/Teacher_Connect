@@ -18,11 +18,12 @@
 <h2> Booking Page  </h2>
     <a href="https://teacher-connect.onrender.com/" target="_blank"><a href="https://teacher-connect.onrender.com/"><img src="https://i.ibb.co/5GNtw9c/Screenshot-2024-11-22-223734.png" alt="EA" border="0"></a>
 
-<h2> Booking Page  </h2>
-    <a href="https://teacher-connect.onrender.com/" target="_blank"><a href="https://teacher-connect.onrender.com/"><img src="https://i.ibb.co/5GNtw9c/Screenshot-2024-11-22-223734.png" alt="EA" border="0"></a>
 
 <h2> Schedule Page  </h2>
     <a href="https://teacher-connect.onrender.com/" target="_blank"><a href="https://teacher-connect.onrender.com/"><img src="https://i.ibb.co/9GbHgDh/Screenshot-2024-11-22-223806.png" alt="EA" border="0"></a>    
+
+<h2> Stats Admin Page  </h2>
+    <a href="https://teacher-connect.onrender.com/" target="_blank"><a href="https://teacher-connect.onrender.com/"><img src="https://i.ibb.co/qBP0kFL/Screenshot-2024-11-22-223842.png" alt="EA" border="0"></a>    
         
 </div>
 
