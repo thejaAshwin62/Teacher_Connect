@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 import customFetch from '../utils/customFetch';
-import { Send, Loader, Clock } from 'lucide-react';
+import { Send, Loader, Clock, Check, CheckCheck } from 'lucide-react';
 
 const Chat = ({ appointmentId, teacherId, studentId, currentUser }) => {
   const [messages, setMessages] = useState([]);
@@ -9,6 +9,7 @@ const Chat = ({ appointmentId, teacherId, studentId, currentUser }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
   const messagesEndRef = useRef(null);
+  const [messageStatuses, setMessageStatuses] = useState({});
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,20 +41,60 @@ const Chat = ({ appointmentId, teacherId, studentId, currentUser }) => {
     if (!newMessage.trim()) return;
 
     setIsSending(true);
+    const tempId = Date.now();
+    
     try {
       const receiverId = currentUser.role === 'teacher' ? studentId : teacherId;
+      
+      setMessages(prev => [...prev, {
+        _id: tempId,
+        content: newMessage,
+        sender: currentUser.userId,
+        senderModel: currentUser.role === 'teacher' ? 'Teacher' : 'User',
+        status: 'sending',
+        createdAt: new Date()
+      }]);
+
       const { data } = await customFetch.post('/messages/send', {
         receiverId,
         content: newMessage,
         appointmentId
       });
 
-      setMessages([...messages, data.message]);
+      setMessages(prev => prev.map(msg => 
+        msg._id === tempId ? { ...data.message, status: 'sent' } : msg
+      ));
+      
       setNewMessage('');
+
+      setTimeout(() => {
+        setMessages(prev => prev.map(msg => 
+          msg._id === data.message._id ? { ...msg, status: 'delivered' } : msg
+        ));
+      }, 2000);
+
     } catch (error) {
+      setMessages(prev => prev.map(msg => 
+        msg._id === tempId ? { ...msg, status: 'failed' } : msg
+      ));
       toast.error('Failed to send message');
     } finally {
       setIsSending(false);
+    }
+  };
+
+  const getMessageStatusIcon = (status) => {
+    switch (status) {
+      case 'sending':
+        return <Clock className="h-3 w-3 text-gray-400" />;
+      case 'failed':
+        return <Clock className="h-3 w-3 text-red-500" />;
+      case 'sent':
+        return <Check className="h-3 w-3 text-gray-400" />;
+      case 'delivered':
+        return <CheckCheck className="h-3 w-3 text-blue-400" />;
+      default:
+        return null;
     }
   };
 
@@ -109,16 +150,20 @@ const Chat = ({ appointmentId, teacherId, studentId, currentUser }) => {
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
-                  <div className={`flex items-center mt-1 space-x-1 text-xs ${
+                  <div className={`flex items-center justify-between mt-1 space-x-1 text-xs ${
                     shouldAlignRight ? 'text-blue-100' : 'text-gray-500'
                   }`}>
-                    <Clock className="h-3 w-3" />
                     <span>
                       {new Date(message.createdAt).toLocaleTimeString([], { 
                         hour: '2-digit', 
                         minute: '2-digit' 
                       })}
                     </span>
+                    {isSender && (
+                      <div className="flex items-center space-x-0.5">
+                        {getMessageStatusIcon(message.status)}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -136,7 +181,7 @@ const Chat = ({ appointmentId, teacherId, studentId, currentUser }) => {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Type your message..."
-            className="input input-bordered flex-1 bg-white/70 focus:bg-white transition-colors text-sm"
+            className="input flex-1 bg-white/70 focus:bg-white transition-colors text-sm border-white focus:border-white"
             disabled={isSending}
           />
           <button

@@ -283,7 +283,8 @@ export default function Navbar() {
           <div className="mt-6 px-4">
             {user ? (
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50">
+               <button className="w-full " onClick={() => navigate(`/${user.role === "teacher" ? "teacher-dashboard" : "dashboard"}`)}>
+               <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50">
                   <div className="avatar placeholder">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
                       <span className="text-lg font-bold text-white">
@@ -304,6 +305,7 @@ export default function Navbar() {
                     )}
                   </div>
                 </div>
+               </button>
                 <button
                   onClick={handleLogout}
                   className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-all duration-200"
@@ -353,7 +355,6 @@ export default function Navbar() {
       {/* Overlay for mobile menu - Added higher z-index */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[9998] sm:hidden"
           onClick={() => setIsMenuOpen(false)}
         />
       )}
