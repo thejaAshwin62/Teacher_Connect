@@ -1,13 +1,23 @@
 # Dependencies
 node_modules/
 package-lock.json
-config/
+
+# Config files and directories
+/config
+/config/*
+!/config/.gitkeep
+/config/*.env
+/config/*.json
+/config/*.yaml
+/config/*.yml
 
 # Environment variables
 .env
 .env.local
 .env.*.local
-
+*.env
+test.env
+.env.test
 
 # Logs
 logs
