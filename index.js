@@ -42,14 +42,19 @@ cloudinary.config({
 });
 
 // MongoDB connection
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => {
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL);
     console.log("MongoDB connected successfully");
-  })
-  .catch((error) => {
+  } catch (error) {
     console.log("MongoDB connection error: ", error);
-  });
+  }
+};
+
+// Only connect if not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  connectDB();
+}
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
@@ -91,9 +96,14 @@ app.use((err, req, res, next) => {
 });
 app.use(errorHandlerMiddleware);
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+// Export the app before starting the server
+export default app;
+
+// Only start the server if this file is run directly
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+  });
+}
 

@@ -4,7 +4,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --no-cache --detectOpenHandles --forceExit --config jest.config.cjs --runInBand",
+    "test:auth": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/auth.test.js --no-cache --detectOpenHandles --forceExit --config jest.config.cjs --runInBand",
+    "test:win": "set NODE_ENV=test&& jest --detectOpenHandles",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "server": "nodemon index",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
@@ -36,5 +40,13 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^3.1.7",
     "stream": "^0.0.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^29.7.0",
+    "mongodb-memory-server": "^9.1.6",
+    "cross-env": "^7.0.3"
   }
 }

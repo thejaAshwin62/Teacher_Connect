@@ -1,0 +1,1256 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App Component > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="min-h-screen"
+  >
+    <nav
+      class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6"
+      >
+        <div
+          class="flex justify-between h-20"
+        >
+          <div
+            class="flex items-center"
+          >
+            <a
+              class="flex-shrink-0 flex items-center"
+              href="/"
+            >
+              <img
+                alt="Logo"
+                class="h-12 w-auto sm:h-16 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+                src="/src/assets/Logo2.png"
+                style="object-fit: contain; max-width: 100%;"
+              />
+            </a>
+            <div
+              class="hidden sm:ml-6 md:ml-8 sm:flex sm:space-x-4 md:space-x-8"
+            >
+              <a
+                class="border-blue-500 text-blue-600 border-b-2 inline-flex items-center px-1 pt-1 text-sm font-medium transition-all duration-200"
+                href="/"
+              >
+                Home
+              </a>
+              <a
+                class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 border-b-2 inline-flex items-center px-1 pt-1 text-sm font-medium transition-all duration-200"
+                href="/contact"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+          <div
+            class="hidden sm:flex sm:items-center sm:space-x-4"
+          >
+            <a
+              href="/login"
+            >
+              <button
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                <svg
+                  class="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+                <span
+                  class="text-sm font-medium"
+                >
+                  Login
+                </span>
+              </button>
+            </a>
+          </div>
+          <div
+            class="flex items-center sm:hidden"
+          >
+            <button
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
+            >
+              <svg
+                class="lucide lucide-menu block h-6 w-6"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="4"
+                  x2="20"
+                  y1="12"
+                  y2="12"
+                />
+                <line
+                  x1="4"
+                  x2="20"
+                  y1="6"
+                  y2="6"
+                />
+                <line
+                  x1="4"
+                  x2="20"
+                  y1="18"
+                  y2="18"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="-translate-x-full opacity-0 sm:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ease-in-out transform"
+        style="height: 100vh;"
+      >
+        <div
+          class="absolute top-0 right-0 pt-4 pr-4 z-[10000]"
+        >
+          <button
+            class="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-gray-700 hover:bg-gray-100"
+          >
+            <span
+              class="sr-only"
+            >
+              Close menu
+            </span>
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="pt-20 pb-6 px-4 h-full overflow-y-auto"
+        >
+          <div
+            class="flex flex-col space-y-1"
+          >
+            <a
+              class="bg-blue-50 text-blue-600 border-l-4 border-blue-500 px-4 py-3 text-base font-medium transition-all duration-200"
+              href="/"
+            >
+              Home
+            </a>
+            <a
+              class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 border-l-4 border-transparent px-4 py-3 text-base font-medium transition-all duration-200"
+              href="/contact"
+            >
+              Contact
+            </a>
+          </div>
+          <div
+            class="mt-6 px-4"
+          >
+            <a
+              class="block"
+              href="/login"
+            >
+              <button
+                class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+                <span
+                  class="font-medium"
+                >
+                  Login
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
+    >
+      <div
+        class="container mx-auto px-4 pt-24 pb-12"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto"
+        >
+          <div
+            class="text-center lg:text-left space-y-4 md:space-y-6"
+          >
+            <h1
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+            >
+              Schedule Your Success with 
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
+              >
+                Teacher Connect
+              </span>
+            </h1>
+            <p
+              class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0"
+            >
+              Streamline your educational journey with our efficient appointment booking system. Connect with teachers, schedule consultations, and enhance your learning experience.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <a
+                class="w-full sm:w-auto"
+                href="/login"
+              >
+                <button
+                  class="w-full px-6 py-3 rounded-xl font-medium transition-all duration-300
+                  bg-gradient-to-r from-blue-600 to-indigo-600 
+                  hover:from-blue-700 hover:to-indigo-700
+                  active:scale-[0.98]
+                  text-white shadow-lg hover:shadow-xl
+                  h-full
+                  focus:ring-4 focus:ring-blue-500/20
+                  disabled:opacity-70 disabled:cursor-not-allowed
+                  text-base sm:text-lg"
+                >
+                  <div
+                    class="flex items-center justify-center space-x-2"
+                  >
+                    <span>
+                      Get Started
+                    </span>
+                    <svg
+                      class="lucide lucide-arrow-right w-5 h-5 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 12h14"
+                      />
+                      <path
+                        d="m12 5 7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </a>
+              <a
+                class="w-full sm:w-auto"
+                href="/about"
+              >
+                <button
+                  class="w-full px-6 py-3 rounded-xl font-medium transition-all duration-300
+                  bg-white/90 hover:bg-white
+                  border-2 border-gray-300 hover:border-gray-400
+                  
+                  text-gray-700 hover:text-gray-900
+                  shadow-md hover:shadow-lg
+                  focus:ring-4 focus:ring-gray-500/20
+                  active:scale-[0.98]
+                  disabled:opacity-70 disabled:cursor-not-allowed
+                  text-base sm:text-lg"
+                >
+                  Learn More
+                </button>
+              </a>
+            </div>
+          </div>
+          <div
+            class="relative max-w-lg mx-auto lg:max-w-none"
+          >
+            <div
+              class="absolute -top-10 -right-10 w-48 h-48 bg-blue-100 rounded-full filter blur-3xl opacity-30"
+            />
+            <div
+              class="absolute -bottom-10 -left-10 w-48 h-48 bg-purple-100 rounded-full filter blur-3xl opacity-30"
+            />
+            <div
+              class="relative"
+            >
+              <img
+                alt="Teacher and Student"
+                class="w-full h-auto rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-300"
+                src="/src/assets/image.webp"
+                style="max-height: 70vh; object-fit: cover;"
+              />
+              <img
+                alt="Online Learning"
+                class="absolute -bottom-8 -right-8 w-1/2 md:w-2/3 rounded-xl shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"
+                src="/src/assets/image2.webp"
+                style="max-height: 40vh; object-fit: cover;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-white/80 backdrop-blur-sm py-12"
+      >
+        <div
+          class="container mx-auto px-4"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          >
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                🗓️
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Easy Scheduling
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Book appointments with teachers at your convenience
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                ⚡
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Real-time Updates
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Get instant notifications about your appointments
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                🔒
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Secure Platform
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Your data is protected with our secure system
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 pt-20"
+      >
+        <div
+          class="relative overflow-hidden"
+        >
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+          >
+            <div
+              class="text-center"
+            >
+              <h1
+                class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
+              >
+                About Our Appointment System
+              </h1>
+              <p
+                class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto"
+              >
+                Streamlining student-teacher interactions through efficient appointment scheduling and management.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        >
+          <h2
+            class="text-3xl font-bold text-center mb-12 text-gray-900"
+          >
+            How It Works
+          </h2>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                <svg
+                  class="lucide lucide-user-check w-12 h-12 text-blue-500"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                  />
+                  <circle
+                    cx="9"
+                    cy="7"
+                    r="4"
+                  />
+                  <polyline
+                    points="16 11 18 13 22 9"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                User Requests
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Students can easily send appointment requests to their teachers
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                <svg
+                  class="lucide lucide-calendar-days w-12 h-12 text-purple-500"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 2v4"
+                  />
+                  <path
+                    d="M16 2v4"
+                  />
+                  <rect
+                    height="18"
+                    rx="2"
+                    width="18"
+                    x="3"
+                    y="4"
+                  />
+                  <path
+                    d="M3 10h18"
+                  />
+                  <path
+                    d="M8 14h.01"
+                  />
+                  <path
+                    d="M12 14h.01"
+                  />
+                  <path
+                    d="M16 14h.01"
+                  />
+                  <path
+                    d="M8 18h.01"
+                  />
+                  <path
+                    d="M12 18h.01"
+                  />
+                  <path
+                    d="M16 18h.01"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Teacher Schedules
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Teachers create and manage their available time slots
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                <svg
+                  class="lucide lucide-clock w-12 h-12 text-green-500"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                  />
+                  <polyline
+                    points="12 6 12 12 16 14"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Booking System
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Users can book specific time slots from teacher schedules
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 
+          hover:shadow-xl transition-all duration-300 
+          transform hover:-translate-y-1
+          border border-gray-100"
+            >
+              <div
+                class="text-4xl mb-4"
+              >
+                <svg
+                  class="lucide lucide-circle-check-big w-12 h-12 text-indigo-500"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.801 10A10 10 0 1 1 17 3.335"
+                  />
+                  <path
+                    d="m9 11 3 3L22 4"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                Confirmation
+              </h3>
+              <p
+                class="text-gray-600 leading-relaxed"
+              >
+                Teachers review and approve appointment requests
+              </p>
+              <div
+                class="mt-4 pt-4 border-t border-gray-100"
+              >
+                <button
+                  class="w-full px-4 py-2 rounded-lg font-medium
+              bg-gray-50 hover:bg-gray-100
+              text-gray-700 
+              transition-all duration-300
+              text-sm"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white/80 backdrop-blur-sm py-16"
+        >
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          >
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              <div
+                class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
+              >
+                <div
+                  class="flex items-center space-x-4"
+                >
+                  <div
+                    class="rounded-full p-3 bg-gray-50"
+                  >
+                    <svg
+                      class="lucide lucide-users w-8 h-8 text-blue-500"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                      />
+                      <circle
+                        cx="9"
+                        cy="7"
+                        r="4"
+                      />
+                      <path
+                        d="M22 21v-2a4 4 0 0 0-3-3.87"
+                      />
+                      <path
+                        d="M16 3.13a4 4 0 0 1 0 7.75"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-2xl font-bold text-gray-900"
+                    >
+                      500+
+                    </div>
+                    <div
+                      class="text-sm text-gray-600"
+                    >
+                      Active Users
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
+              >
+                <div
+                  class="flex items-center space-x-4"
+                >
+                  <div
+                    class="rounded-full p-3 bg-gray-50"
+                  >
+                    <svg
+                      class="lucide lucide-graduation-cap w-8 h-8 text-purple-500"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"
+                      />
+                      <path
+                        d="M22 10v6"
+                      />
+                      <path
+                        d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-2xl font-bold text-gray-900"
+                    >
+                      50+
+                    </div>
+                    <div
+                      class="text-sm text-gray-600"
+                    >
+                      Expert Teachers
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6"
+              >
+                <div
+                  class="flex items-center space-x-4"
+                >
+                  <div
+                    class="rounded-full p-3 bg-gray-50"
+                  >
+                    <svg
+                      class="lucide lucide-message-square w-8 h-8 text-green-500"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div
+                      class="text-2xl font-bold text-gray-900"
+                    >
+                      1000+
+                    </div>
+                    <div
+                      class="text-sm text-gray-600"
+                    >
+                      Appointments
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white"
+        >
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center"
+          >
+            <h2
+              class="text-3xl font-bold mb-4"
+            >
+              Ready to Get Started?
+            </h2>
+            <p
+              class="mb-8 text-blue-100 max-w-2xl mx-auto"
+            >
+              Join our platform to simplify your appointment scheduling process and enhance student-teacher communication.
+            </p>
+            <a
+              href="/login"
+            >
+              <button
+                class="px-6 py-3 rounded-xl font-medium transition-all duration-300
+                bg-white hover:bg-gray-100 active:scale-[0.98]
+                text-gray-700 hover:text-gray-900
+                shadow-md hover:shadow-lg
+                focus:ring-4 focus:ring-gray-500/20
+                disabled:opacity-70 disabled:cursor-not-allowed
+                text-base sm:text-lg"
+              >
+                Get Started
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="bg-gradient-to-r from-gray-900 to-gray-800 text-white"
+      >
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12"
+          >
+            <div
+              class="space-y-4"
+            >
+              <h3
+                class="text-xl font-bold"
+              >
+                Teacher Connect
+              </h3>
+              <p
+                class="text-gray-300 text-sm"
+              >
+                Streamlining student-teacher interactions through efficient appointment scheduling and management.
+              </p>
+              <div
+                class="flex space-x-4"
+              >
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="lucide lucide-facebook"
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="lucide lucide-twitter"
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="lucide lucide-instagram"
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      height="20"
+                      rx="5"
+                      ry="5"
+                      width="20"
+                      x="2"
+                      y="2"
+                    />
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    />
+                    <line
+                      x1="17.5"
+                      x2="17.51"
+                      y1="6.5"
+                      y2="6.5"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  <svg
+                    class="lucide lucide-linkedin"
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    />
+                    <rect
+                      height="12"
+                      width="4"
+                      x="2"
+                      y="9"
+                    />
+                    <circle
+                      cx="4"
+                      cy="4"
+                      r="2"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="text-xl font-bold mb-4"
+              >
+                Quick Links
+              </h3>
+              <ul
+                class="space-y-2"
+              >
+                <li>
+                  <a
+                    class="text-gray-300 hover:text-white transition-colors"
+                    href="/"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-gray-300 hover:text-white transition-colors"
+                    href="/about"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-gray-300 hover:text-white transition-colors"
+                    href="/contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-gray-300 hover:text-white transition-colors"
+                    href="/login"
+                  >
+                    Login/Register
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3
+                class="text-xl font-bold mb-4"
+              >
+                Services
+              </h3>
+              <ul
+                class="space-y-2"
+              >
+                <li
+                  class="text-gray-300"
+                >
+                  Appointment Booking
+                </li>
+                <li
+                  class="text-gray-300"
+                >
+                  Schedule Management
+                </li>
+                <li
+                  class="text-gray-300"
+                >
+                  Real-time Updates
+                </li>
+                <li
+                  class="text-gray-300"
+                >
+                  Teacher Consultations
+                </li>
+              </ul>
+            </div>
+            <div
+              class="space-y-4"
+            >
+              <h3
+                class="text-xl font-bold"
+              >
+                Contact Us
+              </h3>
+              <div
+                class="flex items-center space-x-3 text-gray-300"
+              >
+                <svg
+                  class="lucide lucide-mail"
+                  fill="none"
+                  height="20"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    height="16"
+                    rx="2"
+                    width="20"
+                    x="2"
+                    y="4"
+                  />
+                  <path
+                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                  />
+                </svg>
+                <span>
+                  thejaashwin62@gmail.com
+                </span>
+              </div>
+              <div
+                class="flex items-center space-x-3 text-gray-300"
+              >
+                <svg
+                  class="lucide lucide-phone"
+                  fill="none"
+                  height="20"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <span>
+                  +91 9876543210
+                </span>
+              </div>
+              <div
+                class="flex items-center space-x-3 text-gray-300"
+              >
+                <svg
+                  class="lucide lucide-map-pin"
+                  fill="none"
+                  height="20"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+                <span>
+                  Salem, Tamil Nadu, India
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t border-gray-700 py-6"
+          >
+            <div
+              class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+            >
+              <div
+                class="text-gray-300 text-sm"
+              >
+                © 2024 Teacher Connect. All rights reserved.
+              </div>
+              <div
+                class="flex space-x-6 text-sm"
+              >
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  Privacy Policy
+                </a>
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  class="text-gray-300 hover:text-white transition-colors"
+                  href="#"
+                >
+                  Cookie Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div
+      class="Toastify"
+    />
+  </div>
+</DocumentFragment>
+`;
