@@ -124,7 +124,8 @@
 ## 🚀 Deployment
 
 **Live Application:**  
-[Teacher Connect](https://teacher-connect.onrender.com/)
+<a href="https://teacher-connect.onrender.com/" target="_blank">Teacher Connect</a>
+
 
 ## 🚀 Deployment on Render
 
