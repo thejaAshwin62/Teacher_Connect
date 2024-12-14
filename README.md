@@ -124,7 +124,7 @@
 ## 🚀 Deployment
 
 **Live Application:**  
-[Teacher Connect](https://github.com/thejaAshwin62/Teacher_Connect)
+[Teacher Connect](https://teacher-connect.onrender.com/)
 
 ## 🚀 Deployment on Render
 
