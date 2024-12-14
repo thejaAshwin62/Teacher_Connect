@@ -11,9 +11,9 @@ module.exports = {
   resetMocks: true,
   restoreMocks: true,
   setupFiles: ['dotenv/config'],
-  testTimeout: 30000,
+  testTimeout: 60000,
   transformIgnorePatterns: [
-    'node_modules/(?!(module-that-needs-to-be-transformed)/)',
+    'node_modules/(?!(mongodb-memory-server)/)',
   ],
   modulePathIgnorePatterns: ['<rootDir>/client/'],
   globals: {

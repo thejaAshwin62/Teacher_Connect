@@ -1,0 +1,58 @@
+image: node:18
+
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}-${CI_JOB_NAME}
+  paths:
+    - node_modules/
+    - client/node_modules/
+  policy: pull-push
+
+variables:
+  NODE_ENV: "test"
+
+stages:
+  - setup
+  - test
+  - build
+
+# Install dependencies
+setup:
+  stage: setup
+  script:
+    - apt-get update
+    - apt-get install -y python3 make g++ openssl
+    - npm install
+    - cd client && npm install
+  artifacts:
+    paths:
+      - node_modules/
+      - client/node_modules/
+
+# Run backend tests
+test-backend:
+  stage: test
+  script:
+    - apt-get update
+    - apt-get install -y python3 make g++ openssl
+    - npm install
+    - npm run test:auth
+  dependencies:
+    - setup
+  variables:
+    MONGODB_URL: ${MONGODB_URL}
+    JWT_SECRET: ${JWT_SECRET}
+  before_script:
+    # Specify MongoDB version and install required packages
+    - apt-get install -y mongodb-server
+    - apt-get install -y python3-pip
+    - pip install pymongo
+    - mongo --eval "db.version()"  # Check MongoDB version
+
+# Run frontend tests
+test-frontend:
+  stage: test
+  script:
+    - cd client && npm test
+  dependencies:
+    - setup

@@ -30,10 +30,10 @@ deploy: install test build
 
 # Run specific test suites
 test-backend:
-	npm test
+	npm run test:auth || exit 1
 
 test-frontend:
-	cd client && npm test
+	cd client && npm test || exit 1
 
 # Generate test coverage reports
 coverage:

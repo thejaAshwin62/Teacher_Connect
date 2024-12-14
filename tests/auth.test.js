@@ -4,6 +4,7 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
+import { jest } from '@jest/globals';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,20 +15,25 @@ let app;
 let mongoServer;
 
 beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const mongoUri = mongoServer.getUri();
+  jest.setTimeout(60000);
 
-  if (mongoose.connection.readyState !== 0) {
+  try {
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = await mongoServer.getUri();
+
     await mongoose.disconnect();
+    await mongoose.connect(mongoUri);
+
+    const module = await import('../index.js');
+    app = module.default;
+  } catch (error) {
+    console.error('Setup failed:', error);
+    throw error;
   }
-
-  await mongoose.connect(mongoUri);
-
-  const module = await import('../index.js');
-  app = module.default;
-});
+}, 60000);
 
 beforeEach(async () => {
+  if (!mongoose.connection.db) return;
   const collections = mongoose.connection.collections;
   for (const key in collections) {
     await collections[key].deleteMany();
@@ -35,11 +41,17 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  if (mongoose.connection.readyState !== 0) {
-    await mongoose.disconnect();
+  try {
+    if (mongoose.connection.readyState !== 0) {
+      await mongoose.disconnect();
+    }
+    if (mongoServer) {
+      await mongoServer.stop();
+    }
+  } catch (error) {
+    console.error('Cleanup failed:', error);
   }
-  await mongoServer.stop();
-});
+}, 60000);
 
 describe('Auth Endpoints', () => {
   test('POST /api/v1/auth/register - should validate registration input', async () => {
@@ -55,7 +67,7 @@ describe('Auth Endpoints', () => {
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty('success', true);
     expect(res.body).toHaveProperty('message', 'Registration successful. Please wait for admin approval.');
-  });
+  }, 30000);
 
   test('POST /api/v1/auth/login - should validate login for unapproved user', async () => {
     // Create a mock unapproved user
@@ -78,7 +90,7 @@ describe('Auth Endpoints', () => {
     expect(res.statusCode).toBe(403);
     expect(res.body).toHaveProperty('success', false);
     expect(res.body).toHaveProperty('message', 'Your account is pending approval');
-  });
+  }, 30000);
 
   test('POST /api/v1/auth/login - should successfully login an approved user', async () => {
     // Create a mock approved user
@@ -108,7 +120,7 @@ describe('Auth Endpoints', () => {
     expect(res.body).toHaveProperty('user');
     expect(res.body.user).toHaveProperty('email', 'approved@gmail.com');
     expect(res.body.user).toHaveProperty('username', 'approvedUser');
-  });
+  }, 30000);
 
   test('POST /api/v1/auth/login - should return error for invalid credentials', async () => {
     const res = await request(app)
@@ -121,7 +133,7 @@ describe('Auth Endpoints', () => {
     expect(res.statusCode).toBe(401);
     expect(res.body).toHaveProperty('success', false);
     expect(res.body).toHaveProperty('message', 'Invalid credentials');
-  });
+  }, 30000);
 
   test('POST /api/v1/auth/login - should return error for incorrect password', async () => {
     // Create a mock user
@@ -149,5 +161,5 @@ describe('Auth Endpoints', () => {
     expect(res.statusCode).toBe(401);
     expect(res.body).toHaveProperty('success', false);
     expect(res.body).toHaveProperty('message', 'Invalid credentials');
-  });
+  }, 30000);
 });

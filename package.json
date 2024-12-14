@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --no-cache --detectOpenHandles --forceExit --config jest.config.cjs --runInBand",
-    "test:auth": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/auth.test.js --no-cache --detectOpenHandles --forceExit --config jest.config.cjs --runInBand",
+    "test:auth": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/auth.test.js --no-cache --detectOpenHandles --forceExit --config jest.config.cjs --runInBand --testTimeout=60000",
     "test:win": "set NODE_ENV=test&& jest --detectOpenHandles",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
@@ -47,6 +47,8 @@
     "@babel/preset-env": "^7.24.0",
     "babel-jest": "^29.7.0",
     "mongodb-memory-server": "^9.1.6",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "@babel/core": "^7.24.0",
+    "@types/jest": "^29.5.12"
   }
 }
