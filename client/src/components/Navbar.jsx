@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
-import Logo from "../assets/logo2.png";
+// import Logo from "../assets/logo2.png";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -113,7 +113,7 @@ export default function Navbar() {
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <img
+{/*               <img
                 className="h-12 w-auto sm:h-16 md:h-16 lg:h-16 transition-transform duration-300 hover:scale-105"
                 src={Logo}
                 alt="Logo"
@@ -122,7 +122,7 @@ export default function Navbar() {
                   objectFit: 'contain',
                   maxWidth: '100%'
                 }}
-              />
+              /> */}
             </Link>
 
             {/* Desktop Navigation */}
