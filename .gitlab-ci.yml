@@ -42,12 +42,6 @@ test-backend:
   variables:
     MONGODB_URL: ${MONGODB_URL}
     JWT_SECRET: ${JWT_SECRET}
-  before_script:
-    # Specify MongoDB version and install required packages
-    - apt-get install -y mongodb-server
-    - apt-get install -y python3-pip
-    - pip install pymongo
-    - mongo --eval "db.version()"  # Check MongoDB version
 
 # Run frontend tests
 test-frontend:
