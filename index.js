@@ -7,8 +7,8 @@ import authRoutes from "./routes/auth.routes.js";
 import teacherRoutes from "./routes/teacher.routes.js";
 import appointmentRoutes from "./routes/appointment.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
-import userRoutes from './routes/user.routes.js';
-import messageRoutes from './routes/message.routes.js';
+import userRoutes from "./routes/user.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 import { StatusCodes } from "http-status-codes";
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 import cloudinary from "cloudinary";
@@ -27,9 +27,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.NODE_ENV === "production" 
-      ? process.env.CLIENT_URL  // Your Render URL
-      : "http://localhost:5173",
+    origin:
+      process.env.NODE_ENV === "production"
+        ? process.env.CLIENT_URL // Your Render URL
+        : "http://localhost:5173",
     credentials: true,
   })
 );
@@ -38,7 +39,7 @@ app.use(
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // MongoDB connection
@@ -52,7 +53,7 @@ const connectDB = async () => {
 };
 
 // Only connect if not in test environment
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== "test") {
   connectDB();
 }
 
@@ -64,10 +65,10 @@ app.use("/api/v1/appointments", appointmentRoutes);
 app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/messages", messageRoutes);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   app.use(express.static(path.resolve(__dirname, "./public")));
-  
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./public", "index.html"));
   });
@@ -100,10 +101,9 @@ app.use(errorHandlerMiddleware);
 export default app;
 
 // Only start the server if this file is run directly
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== "test") {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });
 }
-

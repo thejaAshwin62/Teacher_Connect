@@ -3,11 +3,16 @@ import { User } from "../models/User.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 const createAdmin = async () => {
+  const MONGO_URI = process.env.MONGODB_URL;
+  if (!MONGO_URI) {
+    console.error("MongoDB URI is not defined in the environment variables.");
+    process.exit(1);
+  }
   try {
-    await mongoose.connect(process.env.MONGODB_URL);
+    await mongoose.connect(MONGO_URI);
     console.log("Connected to MongoDB");
 
     // Drop existing indexes
@@ -29,7 +34,7 @@ const createAdmin = async () => {
       email: "admin@admin.com",
       password: hashedPassword,
       role: "admin",
-      isApproved: true
+      isApproved: true,
     });
 
     console.log("Admin user created successfully:", adminUser);
@@ -41,4 +46,4 @@ const createAdmin = async () => {
   }
 };
 
-createAdmin(); 
+createAdmin();
